@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -25,7 +26,12 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'sku' =>        'required|string|unique:products|max:160',
+            'sku' => [
+                'required',
+                'string',
+                'max:160',
+                Rule::unique('products')->ignore($this->product->id),
+            ],
             'name' =>       'required|string|max:45',
             'stock' =>      'required|numeric',
             'price' =>      'required|numeric',
