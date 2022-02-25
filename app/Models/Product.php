@@ -20,7 +20,7 @@ class Product extends Model
         'username',
         'date',
         'email',
-        'estado',
+        'state',
         'password'
     ];
 }
