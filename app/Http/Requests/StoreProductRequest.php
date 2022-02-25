@@ -15,7 +15,7 @@ class StoreProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return true;
     }
 
     /**
