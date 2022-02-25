@@ -44,4 +44,13 @@ class ProductController extends Controller
 
         return response()->json($product, 201);
     }
+
+    public function remove(Product $product, Request $request)
+    {
+        $product->delete = 1;
+
+        $product->save();
+
+        return response()->json($product);
+    }
 }

@@ -37,10 +37,6 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::post('/create', [ProductController::class,'store']);
         Route::get('/{product}',[ProductController::class,'getProduct']);
         Route::post('/{product}',[ProductController::class,'edit']);
-        /*
-        Route::get('/{user}', [UserController::class,'getUser']);
-        Route::post('/{user}', [UserController::class,'edit']);
-        Route::put('/{user}/disabled', [UserController::class,'disable']);
-        Route::put('/{user}/enabled', [UserController::class,'enable']);*/
+        Route::post('/{product}/remove',[ProductController::class,'remove']);
     });
 });
