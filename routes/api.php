@@ -24,5 +24,10 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['middleware' => 'auth:api'], function () {
     Route::group(['prefix' => 'user'], function () {
        Route::get('',[UserController::class, 'list']);
+       Route::post('/create', [UserController::class,'store']);
+       Route::get('/{user}', [UserController::class,'getUser']);
+       Route::post('/{user}', [UserController::class,'edit']);
+       Route::put('/{user}/disabled', [UserController::class,'disable']);
+       Route::put('/{user}/enabled', [UserController::class,'enable']);
     });
 });
