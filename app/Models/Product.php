@@ -15,12 +15,11 @@ class Product extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'sku',
         'name',
-        'phone',
-        'username',
-        'date',
-        'email',
-        'state',
-        'password'
+        'stock',
+        'price',
+        'description',
+        'delete',
     ];
 }
