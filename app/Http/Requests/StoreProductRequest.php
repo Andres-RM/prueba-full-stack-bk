@@ -26,11 +26,11 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => [
+            'sku' => [
                 'required',
                 'string',
                 'max:160',
-                Rule::unique('products')->ignore($this->products->id),
+                'unique:products'
             ],
             'name' =>       'required|string|max:45',
             'stock' =>      'required|numeric',
