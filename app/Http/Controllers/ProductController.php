@@ -13,7 +13,7 @@ class ProductController extends Controller
 
     public function list(Request $request)
     {
-        $products = Product::query()->paginate();
+        $products = Product::query()->where('delete',0)->paginate();
 
         return response()->json($products);
     }
