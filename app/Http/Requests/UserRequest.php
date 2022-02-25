@@ -14,7 +14,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return true;
     }
 
     /**
@@ -29,7 +29,8 @@ class UserRequest extends FormRequest
             'email' => 'required|email|unique:users|max:195',
             'name' => 'required|string|max:50',
             'phone' => 'required|string|max:25',
-            'password' => 'required|string|min:6|max:20'
+            'password' => 'required|string|min:6|max:20',
+            'date' => 'required|date'
         ];
     }
 }

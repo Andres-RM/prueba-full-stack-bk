@@ -15,7 +15,7 @@ class UserUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return true;
     }
 
     /**
@@ -40,7 +40,8 @@ class UserUpdateRequest extends FormRequest
             ],
             'name' => 'required|string|max:50',
             'phone' => 'required|string|max:25',
-            'password' => 'nullable|string|min:6|max:20'
+            'password' => 'nullable|string|min:6|max:20',
+            'date' => 'required|date'
         ];
     }
 }

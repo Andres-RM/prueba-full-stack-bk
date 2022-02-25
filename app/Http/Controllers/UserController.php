@@ -38,6 +38,7 @@ class UserController extends Controller
         $user->name = $request->get('name');
         $user->phone = $request->get('phone');
         $user->email = $request->get('email');
+        $user->date = $request->get('date');
 
         if ($request->get('password')) {
             $user->password = Hash::make($request->get('password'));

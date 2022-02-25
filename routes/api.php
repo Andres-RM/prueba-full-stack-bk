@@ -22,21 +22,19 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('login', [AuthCotroller::class, 'login']);
 });
 
-Route::group(['middleware' => 'auth:api'], function () {
-    Route::group(['prefix' => 'user'], function () {
-       Route::get('',[UserController::class, 'list']);
-       Route::post('/create', [UserController::class,'store']);
-       Route::get('/{user}', [UserController::class,'getUser']);
-       Route::post('/{user}', [UserController::class,'edit']);
-       Route::put('/{user}/disabled', [UserController::class,'disable']);
-       Route::put('/{user}/enabled', [UserController::class,'enable']);
-    });
+Route::group(['prefix' => 'user'], function () {
+    Route::get('',[UserController::class, 'list']);
+    Route::post('/create', [UserController::class,'store']);
+    Route::get('/{user}', [UserController::class,'getUser']);
+    Route::post('/{user}', [UserController::class,'edit']);
+    Route::put('/{user}/disabled', [UserController::class,'disable']);
+    Route::put('/{user}/enabled', [UserController::class,'enable']);
+});
 
-    Route::group(['prefix' => 'product'], function () {
-        Route::get('',[ProductController::class, 'list']);
-        Route::post('/create', [ProductController::class,'store']);
-        Route::get('/{product}',[ProductController::class,'getProduct']);
-        Route::post('/{product}',[ProductController::class,'edit']);
-        Route::post('/{product}/remove',[ProductController::class,'remove']);
-    });
+Route::group(['prefix' => 'product'], function () {
+    Route::get('',[ProductController::class, 'list']);
+    Route::post('/create', [ProductController::class,'store']);
+    Route::get('/{product}',[ProductController::class,'getProduct']);
+    Route::post('/{product}',[ProductController::class,'edit']);
+    Route::post('/{product}/remove',[ProductController::class,'remove']);
 });
